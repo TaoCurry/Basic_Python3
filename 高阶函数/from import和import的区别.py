@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 #-*- coding:utf-8 -*-
+#主要是需要弄清模块<Module>和类<class>的区别
+
 #从datetime模块中引入datetime类，两个datetime重名
 from datetime import datetime
 print(datetime.now())
