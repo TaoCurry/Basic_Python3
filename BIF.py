@@ -47,7 +47,11 @@ round(2.675, 2) gives 2.67 instead of the expected 2.68.
 This is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float.
 [结果不是 2.68 主要是和浮点型的计算精度有关，计算机已经对计算结果进行了截断处理，所以机器处理的值会比 2.675这个实际值小一点。]	
 
-	
+ repr（）# 将对象转化为供解释器读取的形式
+	>>>repr('hello')
+	   "'hello'"
+ repr实际上是一个函数，str/int是一种type class
+
  int(x)#把一个数、字符串转化成整形。如果为空，返回0；如果是数，返回x.__int__()；如果是浮点数，取整数部分.
  int()
  int(10)
