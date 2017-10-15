@@ -32,6 +32,17 @@ def any (iterable):
  
  pow(x,y[，z])#x的y次方，如果z存在，再进行取模操作，即pow(x, y) % z
  
+ round(x[,y]) #返回浮点数x的四舍五入值, x:数值表达式; y:数值表达式，保留小数点后几位，如果没有y，默认保留整数。
+	      #round()返回结果和python版本有关
+		>>>python2 round(0.5)
+		   1
+		>>>python3 round(0.5) 
+		   0
+		>>>python3 round(-0.5)
+		   0
+		#if two multiples are equally close, rounding is done toward the even choice 如果距离两边一样远,朝向偶数一端.
+ round(2.333,2) #2.33
+	
  int(x)#把一个数、字符串转化成整形。如果为空，返回0；如果是数，返回x.__int__()；如果是浮点数，取整数部分.
  int()
  int(10)
