@@ -16,5 +16,5 @@ import datetime
 print(datetime.datetime.now())
 #在datetime中找到datetime这个类，在使用now这个静态方法。
 
-#一般来说，尽量避免使用from XX import XX，而是使用import语句
-#这是为了避免在程序中出现名称冲突，同时也是为了使程序更易读。
+一般来说，尽量避免使用from XX import XX，而是使用import语句
+这是为了避免在程序中出现名称冲突，同时也是为了使程序更易读。
