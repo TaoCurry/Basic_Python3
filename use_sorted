@@ -1,0 +1,43 @@
+#sorted(iterable[, key][, reverse]) -->built in function --> builds a new sorted list from an iterable
+#sorted返回的是一个序列
+#sorted()内建函数接受任何可迭代的对象
+
+>>> sorted([5, 2, 3, 1, 4])
+[1, 2, 3, 4, 5]
+
+ #  equaly
+>>> a = [5, 2, 3, 1, 4]
+>>> a.sort()
+>>> a
+[1, 2, 3, 4, 5]
+
+>>> sorted({1: 'D', 2: 'B', 3: 'B', 4: 'E', 5: 'A'})
+[1, 2, 3, 4, 5]
+
+>>> sorted("This is a test string from Andrew".split(), key=str.lower)
+# key 关键字表示以什么方式进行排序，这里是按字符串首字母的大小顺序进行排序
+['a', 'Andrew', 'from', 'is', 'string', 'test', 'This']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
