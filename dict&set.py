@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #key-value hash值
-#dict是一种映射。一一对应。
+#dict是一种映射 Mapping 一一对应。
+#字典中的键是唯一的，值并不唯一。
 d = {'Micheal':95,'Curry':30,'MacGrady':1,'Kobe':24,'KD':35}#dict
 d['Micheal']
 d['Curry']
