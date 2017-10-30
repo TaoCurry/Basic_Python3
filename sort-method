@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #-*- coding:utf-8 -*-
 """
- sort(key, reverse=False)
+ str.sort(key, reverse=False)
 """
 当用户需要一个排好的列表副本，同时又保留原有列表不变的时候
 >>>x = [2, 4, 1, 8, 23, 12]
