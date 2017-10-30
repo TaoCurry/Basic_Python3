@@ -1,0 +1,41 @@
+Unicode:（统一码、万国码、单一码）是计算机科学领域里的一项业界标准,包括字符集、编码方案等。Unicode 是为了解决传统的字符编码方案的局限而产生的，它为每种语言中的每个字符设定了统一并且唯一的二进制编码，以满足跨语言、跨平台进行文本转换、处理的要求。
+目前的Unicode字符分为17组编排，0x0000 至 0xFFFF，每组称为平面（Plane），而每平面拥有65536个码位，共1114112个。
+
+UTF-8:UTF-8（8-bit Unicode Transformation Format）是一种针对Unicode的可变长度字符编码，又称万国码。UTF-8以字节为单位对Unicode进行编码。
+
+ASCII：美国标准信息交换代码（American Standard Code for Information Interchange）。128个字符，包括大小写字母、数字0-9、标点符号、非打印字符（换行符、制表符等4个）以及控制字符（退格、响铃等）组成。
+
+*在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。*
+Unicode被计算机内存识别，UTF-8作为编辑或传输的时使用。
+例如:用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件.
+
+
+由于Python的字符串类型是str，在内存中以Unicode表示，一个字符对应若干个字节。如果要在网络上传输，或者保存到磁盘上，就需要把str变为以字节为单位的bytes。
+Python对bytes类型的数据用带b前缀的单引号或双引号表示：
+>>>x = b'ABC'
+>>>s = 'ABC'
+注意区分'ABC'和b'ABC'，前者是str，后者虽然内容显示得和前者一样，但bytes的每个字符都只占用一个字节。
+
+str -> bytes	<以Unicode表示的str通过encode()方法可以编码为指定的bytes>
+str.encode(encoding = 'utf-8')
+str.encode('ascii')
+
+>>>'ABC'.encode('ascii')
+b'ABC'
+
+>>>'中文'.encode('ascii')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)
+# 含有中文的str无法用ASCII编码，因为中文编码的范围超过了ASCII编码的范围，Python会报错。
+
+>>>'中文'.encode('utf-8') 	# 默认utf-8编码 == '中文'.encode()
+b'\xe4\xb8\xad\xe6\x96\x87'
+在bytes中，无法显示为ASCII字符的字节，用\x##显示. 一个\x表示一个字节。
+
+bytes -> str	把bytes变为str，用decode()方法
+
+>>>b'ABC'.decode('ascii')
+'ABC'
+>>>b'\xe4\xb8\xad\xe6\x96\x87'.decode()
+'中文'
