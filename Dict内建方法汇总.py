@@ -137,8 +137,14 @@ dict.update()    #update() accepts either another dictionary object or an iter
 >>> x
 {'name': 'Curry', 'age': 28, 'team': ['golden', 'state', 'warriros'], 'height': "6'6"}
 
-dict.values() # Return a new view of the dictionary’s values. 以列表的形式返回字典中的值
-
+dict.values() # Return a new view of the dictionary’s values. 以列表的形式返回字典中的值。
+# example
+>>> d = {}
+>>> d[1] = 1
+>>> d[2] = 2
+>>> d[3] = 3
+>>> d.values()
+dict_values([1, 2, 3])
 
 # 字典的格式化字符串, key为string
 >>>phonebook = {'Beth': '9102', 'Alice': '2341', 'Cecil': '3528'}
