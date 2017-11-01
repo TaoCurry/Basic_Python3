@@ -20,14 +20,14 @@
  
  4. bin(x)#将整数转换为二进制字符串。
  
- 5. bool(x)#返回一个布尔值，即True或False。
+ 5. bool(x)#返回一个布尔值，即True或False。None '' 0 ｛｝ [] ()都会fasle
  
  6. hex(x)#将整数转换为以“0x”为前缀的小写十六进制字符串.
  
  7. oct(x)#将整数转换为以“0o”为前缀的小写八进制字符串.
  
- 8. chr(x)#参数是0-0x10ffff(1,114,111),参数可以是二进制、八进制、十进制和十六进制。返回是当前整数对应的Unicode。
- 
+ 8. chr(x)#参数是0-0x10ffff(1,114,111),参数可以是二进制、八进制、十进制和十六进制。返回是当前整数对应的Unicode编码。
+
  9. ord(x)#给定一个表示一个Unicode字符的字符串，返回一个表示该字符的Unicode代码点的整数。
  
 10. pow(x,y[，z])#x的y次方，如果z存在，再进行取模操作，即pow(x, y) % z
@@ -54,12 +54,12 @@
 	This is not a bug: it’s a result of the fact that most decimal fractions can’t be represented exactly as a float.
 	[结果不是 2.68 主要是和浮点型的计算精度有关，计算机已经对计算结果进行了截断处理，所以机器处理的值会比 2.675这个实际值小一点。]	
 
-12. repr（）# 将对象转化为供解释器读取的形式
+12. repr(object) # 将对象转化为供解释器读取的形式,计算机内部读取的字符串格式
 	>>>repr('hello')
 	   "'hello'"
     repr实际上是一个函数，str/int是一种type class
 
-13. str()#返回一个字符串版本的对象。如果没有提供对象，则返回空字符串。
+13. str(object) #返回一个字符串版本的对象。如果没有提供对象，则返回空字符串。返回给用户显示的字符串对象
  	>>>str('123')
 	   '123'
 
@@ -77,6 +77,7 @@
 	255
   >>>int('0b11111111',base = 2)
  	255
+	
 15. float(x)#把字符串或者一个数转化成浮点数.
   >>>float('+123')
 	123.0
@@ -90,6 +91,40 @@
 	-inf #负无限大
   >>>float('NaN')
 	nan # not a number
+	
+16. ascii(object) # As repr(), return a string containing a printable representation of an object, but escape the non-ASCII characters in the string returned by repr() using \x, \u or \U escapes. This generates a string similar to that returned by repr() in Python 2.和Python2中的repr()内置函数一样。
+
+17. any(iterable)	# Return True if any element of the iterable is true. If the iterable is empty, return False.如果iterable中的任何元素都为true，则返回True。 如果iterable为空，则返回False。 主要是用来判断迭代对象是否都为空元素
+# equal
+>>> def any(iterable):
+	for elements in iterable:
+		if elements:
+			return True
+	return False
+
+>>> any(())
+False
+>>> any([1, 2, 0])
+True
+
+18. all(iterable)	# Return True if all elements of the iterable are true (or if the iterable is empty). 如果iterable中的所有元素都为true（或者iterable为空），则返回True。
+>>> def all(iterable):
+	for elements in iterable:
+		if not elements:
+			return False
+	return True
+
+>>> all(())
+True
+>>> all([1])
+True
+>>> all([None])
+False
+>>> all([None, '', 0])
+False
+
+
+
  
  
  
