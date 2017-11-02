@@ -123,6 +123,51 @@ False
 >>> all([None, '', 0])
 False
 
+19. zip(*iterable) 	# 将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。如果各个迭代器的元素个数不一致，则返回列表长度与最短的对象相同，利用 * 号操作符，可以将元组解压为列表。
+# example
+>>> def zip(*iterables):
+	sentinel = object()
+	iterators = [iter(it) for it in iterables]
+	while iterators:
+		result = []
+		for it in iterators:
+			elem = next(it, sentinel)
+			if elem is sentinel:
+				return
+			result.append([elem])
+		yield tuple(result)
+
+		
+>>> zip([1, 2, 3],['age', 'name', 'height'])
+<generator object zip at 0x000002730800FBA0>
+>>> list(zip([1, 2, 3],['age', 'name', 'height']))
+[([1], ['age']), ([2], ['name']), ([3], ['height'])]
+# example
+>>> name = ['Curry', 'KD', 'Lebron']
+>>> number = [30, 35, 23]
+>>> zip(name, number)
+<zip object at 0x000001D50EF054C8>
+>>> list(zip(name, number))
+[('Curry', 30), ('KD', 35), ('Lebron', 23)]
+
+zip（）与*操作符结合可用于解压缩列表
+# example
+>>> x = [1, 2, 3]
+>>> y = [4, 5, 6]
+>>> zipped = zip(x, y)
+>>> zipped
+<zip object at 0x000001D7B3265608>
+>>> list(zipped)
+[(1, 4), (2, 5), (3, 6)]
+>>> x2, y2 = zip(*zip(x, y))
+>>> list(x2)
+[1, 2, 3]
+>>> list(y2)
+[4, 5, 6]
+>>> x == list(x2) and y == list(y2)
+True
+>>> 
+
 
 
  
