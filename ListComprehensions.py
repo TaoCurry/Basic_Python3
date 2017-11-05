@@ -40,6 +40,8 @@ L = ['Hello', 'World', 18, 'Apple', None]#由于非字符串类型没有lower()�
 	if root == int(root):
 		print(n)
 		break
+    else:	# 循环中加入else语句
+	print('Didn\'t find it!')
 
 	
 81
