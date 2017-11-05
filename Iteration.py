@@ -62,3 +62,6 @@ isinstance(123,Iterable)
 #Python内置的enumerate函数可以把一个list变成索引-元素对，这样就可以在for循环中同时迭代索引和元素本身，-> 按索引迭代
 for index , value in enumerate(['A','B','C']):
 	print(index,value)
+
+翻转和排序迭代
+reversed(seq) 和 sorted(seq)方法
