@@ -168,11 +168,11 @@ zip（）与*操作符结合可用于解压缩列表
 True
 >>> 
 
-20. eval((expression, globals=None, locals=None)   # The arguments are a string and optional globals and locals. If provided, globals must be a dictionary. If provided, locals can be any mapping object.执行一个字符串表达式，并返回表达式的值。参数是一个字符串和可选的全局变量和局部变量。 如果提供，globals全局变量必须是一个字典。 如果提供，locals局部变量可以是任何映射对象。
+20. eval((expression, globals=None, locals=None)   # The arguments are a string and optional globals and locals. If provided, globals must be a dictionary. If provided, locals can be any mapping object.执行一个字符串表达式，并返回表达式的值。参数是一个字符串和可选的全局作用域和局部作用域。 如果提供，globals全局作用域必须是一个字典。 如果提供，locals局部作用域可以是任何映射对象。
 	 
 # example
 >>> x = 1
->>> eval('x + 1')
+>>> eval('x + 1')   # 将字符串作为表达式计算，并且返回值
 2
 
 21. divmod(a, b)	#Take two (non complex) numbers as arguments and return a pair of numbers consisting of their quotient and remainder when using integer division. With mixed operand types, the rules for binary arithmetic operators apply. For integers, the result is the same as (a // b, a % b). For floating point numbers the result is (q, a % b). 以两个（非复数）数字作为参数，并在使用整数除法时返回由它们的商和余数组成的一对数字。 混合操作数类型适用于二元算术运算符的规则。 对于整数，结果与（a // b，a % b）相同。对于浮点数参数，结果与(q, a % b)相同.
