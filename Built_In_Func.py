@@ -168,9 +168,102 @@ zip（）与*操作符结合可用于解压缩列表
 True
 >>> 
 
+20. eval((expression, globals=None, locals=None)   # The arguments are a string and optional globals and locals. If provided, globals must be a dictionary. If provided, locals can be any mapping object.执行一个字符串表达式，并返回表达式的值。参数是一个字符串和可选的全局变量和局部变量。 如果提供，globals全局变量必须是一个字典。 如果提供，locals局部变量可以是任何映射对象。
+	 
+# example
+>>> x = 1
+>>> eval('x + 1')
+2
 
+21. divmod(a, b)	#Take two (non complex) numbers as arguments and return a pair of numbers consisting of their quotient and remainder when using integer division. With mixed operand types, the rules for binary arithmetic operators apply. For integers, the result is the same as (a // b, a % b). For floating point numbers the result is (q, a % b). 以两个（非复数）数字作为参数，并在使用整数除法时返回由它们的商和余数组成的一对数字。 混合操作数类型适用于二元算术运算符的规则。 对于整数，结果与（a // b，a % b）相同。对于浮点数参数，结果与(q, a % b)相同.
 
- 
- 
- 
- 
+# example
+>>> divmod(10, 3)
+(3, 1)
+>>> divmod(10.0, 3.0)
+(3.0, 1.0)
+
+22. enumerate(iterable, start=0)	# Return an enumerate object. iterable must be a sequence, an iterator, or some other object which supports iteration.The __next__() method of the iterator returned by enumerate() returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable. 返回一个枚举对象，iterable必须是一个序列，一个迭代器或者其他支持迭代的对象。由enumerate（）返回的迭代器的__next __（）方法返回一个元组，该元组包含一个计数（从start开始，默认为0）以及迭代获得的值。
+
+# example
+>>> l  = list(range(10))
+>>> enumerate(l)
+<enumerate object at 0x000002A09F98C798>	# enumerate obeject
+>>> list(enumerate(l))
+[(0, 0), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), (9, 9)]
+>>> tuple(enumerate(l))
+((0, 0), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), (9, 9))
+>>> dict(enumerate(l))
+{0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9}
+		 
+>>> list(enumerate(range(11), 1))
+[(1, 0), (2, 1), (3, 2), (4, 3), (5, 4), (6, 5), (7, 6), (8, 7), (9, 8), (10, 9), (11, 10)]  
+		 
+# Equivalent to:
+def enumerate(iterable, start=0):
+		 n = start
+		 for elem in iterable:
+		 	yield n, elem
+		 n += 1
+		 
+		 
+>>> enumerate(range(10))
+<generator object enumerate at 0x000002A09F981518>
+>>> g = enumerate(range(10))
+>>> next(g)		# 调用next()方法
+(0, 0)
+>>> next(g)
+(1, 1)
+>>> next(g)
+(2, 2)
+>>> next(g)
+(3, 3)
+>>> next(g)
+(4, 4)
+>>> next(g)
+(5, 5)
+>>> next(g)
+(6, 6)
+>>> next(g)
+(7, 7)
+>>> next(g)
+(8, 8)
+>>> next(g)
+(9, 9)
+>>> next(g)
+Traceback (most recent call last):
+  File "<pyshell#33>", line 1, in <module>
+    next(g)
+StopIteration
+		 
+23. frozenset([iterable]) #Return a new frozenset object, optionally with elements taken from iterable. frozenset is a built-in class. 返回一个新的冻结对象，可选的元素来自iterable。 frozenset是一个内置的类。
+
+# example
+>>> frozenset([1, 2, 3])
+frozenset({1, 2, 3})	# frozenset object
+>>> frozenset('asdsd')
+frozenset({'d', 'a', 's'})	#		 
+
+24. id(object)	 # Return the “identity” of an object. This is an integer which is guaranteed to be unique and constant for this object during its lifetime. Two objects with non-overlapping lifetimes may have the same id() value. 以整数形式返回对象的内存地址.在整个对象的生命周期中保证这个对象是独一无二的。两个具有非重叠生命周期的对象可能具有相同的id（）值。
+
+ # example
+>>> id(frozenset('asdsd'))
+2888895493288
+>>> id(g)
+2888895567040
+
+25. filter(function, iterable)	#Construct an iterator from those elements of iterable for which function returns true. iterable may be either a sequence, a container which supports iteration, or an iterator. 接受一个函数和一个可迭代对象,将可迭代对象中的每个元素传入函数中执行,如果函数返回值为True，就保留这个元素。
+filter(function, iterable) is equivalent to the generator expression (item for item in iterable if function(item)) 		 
+
+# example
+>>> def is_odd(n):
+	return n % 2 ==1
+
+>>> filter(is_odd, list(range(11)))
+<filter object at 0x000002A09F984780>	
+# filter(function, iterable) is equivalent to the generator expression (item for item in iterable if function(item))
+>>> list(filter(is_odd, list(range(11))))
+[1, 3, 5, 7, 9]
+		 
+
+		 
