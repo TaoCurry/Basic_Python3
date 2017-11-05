@@ -25,3 +25,21 @@ L = ['HELLO','WORLD','APPLE','BMW']
 L = ['Hello', 'World', 18, 'Apple', None]#由于非字符串类型没有lower()方法
 [s.lower() for s in L if isinstance(s,str) == True]
 #['hello', 'world', 'apple']
+
+带步长的列表生成式，步长表示每对相邻数字之间的差别
+# example
+>>> L = []
+>>> for n in range(0, 10, 2):	# 步长为2
+	L.append(n)
+>>> L
+[0, 2, 4, 6, 8]
+# 
+>>> from math import sqrt
+>>> for n in range(99, 0, -1):	# 步长设置为负值进行反向迭代
+	root = sqrt(n)
+	if root == int(root):
+		print(n)
+		break
+
+	
+81
